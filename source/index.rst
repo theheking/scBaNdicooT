@@ -6,7 +6,8 @@
 scBaNdicooT documentation
 =========================
 
-Thjis is the documentation for the scBaNdicooT project.
+This is the documentation for the scBaNdicooT project.
+Hosting will just automatically update when changes are pushed to the main branch.
 
 Add your content using ``reStructuredText`` syntax. See the
 `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
