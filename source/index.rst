@@ -3,18 +3,75 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-scBaNdicooT documentation
-=========================
+scBaNdicooT: Single-Cell Beta-Mixture Nascent Detection in Complex Tumour Tissue 
+==================================================================================
 
-This is the documentation for the scBaNdicooT project.
-Hosting will just automatically update when changes are pushed to the main branch.
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+.. attention::
+   ***Under construction***
 
+
+
+.. figure:: ../img/fig_pipeline-01.png
+   :class: with-border
+   :alt: Visual abstract summarising the nascent single-cell RNA sequencing framework
+   :align: center
+   :width: 90%
+
+
+I. The scBaNdicooT Nextflow Pipeline
+------------------------------------
+The core of this project is a scalable, automated **Nextflow pipeline** designed for high-throughput processing of nascent single-cell data. This pipeline addresses a major methodological gap by providing a compatible workflow for **microwell-based technologies**, specifically **BD Rhapsody**.
+
+**Key Computational Features:**
+* **Scalable Barcode Processing**: Optimized to handle the complex barcode geometry of BD Rhapsody microwell platforms.
+* **Probabilistic Modeling**: Uses a two-component **Beta-mixture model** to distinguish true 4sU/EU-induced T-to-C conversions from background sequencing errors.
+* **EM Algorithm**: Employs **Expectation-Maximisation (EM)** to estimate parameters (π, α, β) representing the nascent fraction and background noise.
+* **Automated Quantification**: Generates separate gene-by-cell matrices for **nascent**, **total**, and **nascent-to-total ratios (NTR)** for downstream analysis.
+
+
+II. Nascent Single-Cell Framework
+---------------------------------
+Traditional scRNA-seq captures a snapshot of total mRNA, which is often dominated by long-lived, pre-existing transcripts. scBaNdicooT utilizes **metabolic RNA labelling** (4sU/EU) to provide a time-resolved view of transcriptional activity.
+
+* **Real-Time Dynamics**: Measures newly synthesised RNA to reveal how cells dynamically respond to stress and drugs in real time.
+* **Kinetic Resolution**: Captures the earliest molecular decisions determining cell fate (sensitivity vs. resistance) before they are visible in the steady-state transcriptome.
+
+III. Application in Complex 3D Tumour Models
+--------------------------------------------
+We demonstrate the power of scBaNdicooT by profiling transcriptional responses to chemotherapy in a physiologically relevant **3D tumour model**.
+
+* **ALTEN System**: Uses Alginate-based tissue engineering to encapsulate **MMTV-PyMT** mammary tumour fragments, preserving the native 3D architecture and microenvironment.
+* **Drug Response**: Profiles thousands of individual cells—including epithelial, immune, and stromal populations—to identify subclonal responses to **Doxorubicin**.
+* **Subclonal Selection**: Integrates nascent RNA detection with CNV profiling to distinguish between immediate drug-induced reprogramming and the selection of resistant subclones.
+
+
+
+
+References
+==========
+
+.. rubric:: Key nascent single-cell RNA sequencing methods
+
+- Erhard, F. *et al.* (2019). **scSLAM-seq reveals core features of transcription dynamics in single cells**. *Nature*.  
+- Hendriks, G.-J. *et al.* (2019). **NASC-seq monitors RNA synthesis in single cells**. *Nature Communications*.  
+- Cao, J. *et al.* (2020). **Joint profiling of chromatin accessibility and nascent transcription in single cells**. *Nature Biotechnology*.  
+- Qiu, X. *et al.* (2022). **scNT-seq enables dynamic profiling of transcriptional responses at single-cell resolution**. *Nature Methods*.  
+- Qiu, X. *et al.* (2023). **scNT-seq2 improves sensitivity and scalability of nascent transcript detection in single cells**. *Nature Biotechnology*.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Pipeline Documentation:
 
+   installation_and_requirements
+   nextflow_workflow_details
+   testing_data
+   beta_mixture_modeling
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Case Study:
+
+   mmtv_pymt_alten_model
+   quality_control
+   data_exploration
